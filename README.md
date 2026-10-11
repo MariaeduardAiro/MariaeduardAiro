@@ -14,6 +14,6 @@
 </p>
 
 <p>
-	<img src="assends/about-me-letters-hop.svg" alt="Sobre Mim">
+	<img src="assends/about-me-letters.gif" alt="Sobre Mim">
 </p>
 
