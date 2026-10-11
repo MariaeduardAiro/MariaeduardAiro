@@ -1,14 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="640" height="64" viewBox="0 0 640 64">
   <text x="320" y="44" text-anchor="middle" fill="#FFFFFF" stroke="#303030" stroke-width="1.5" paint-order="stroke fill" font-family="Segoe UI Symbol, sans-serif" font-size="30" font-weight="600">██▓▒░
-    <tspan>Ⓢ<animate attributeName="dy" values="0;-12;2;0;0" keyTimes="0;0.03;0.06;0.09;1" calcMode="spline" keySplines="0.4 0 0.2 1;0.2 0 0.6 1;0.4 0 0.2 1;0 0 1 1" dur="1s" repeatCount="indefinite" /></tspan>
-    <tspan>ⓞ<animate attributeName="dy" values="0;-12;2;0;0" keyTimes="0;0.105;0.135;0.165;1" calcMode="spline" keySplines="0.4 0 0.2 1;0.2 0 0.6 1;0.4 0 0.2 1;0 0 1 1" dur="1s" repeatCount="indefinite" /></tspan>
-    <tspan>ⓑ<animate attributeName="dy" values="0;-12;2;0;0" keyTimes="0;0.18;0.21;0.24;1" calcMode="spline" keySplines="0.4 0 0.2 1;0.2 0 0.6 1;0.4 0 0.2 1;0 0 1 1" dur="1s" repeatCount="indefinite" /></tspan>
-    <tspan>ⓡ<animate attributeName="dy" values="0;-12;2;0;0" keyTimes="0;0.255;0.285;0.315;1" calcMode="spline" keySplines="0.4 0 0.2 1;0.2 0 0.6 1;0.4 0 0.2 1;0 0 1 1" dur="1s" repeatCount="indefinite" /></tspan>
-    <tspan>ⓔ<animate attributeName="dy" values="0;-12;2;0;0" keyTimes="0;0.33;0.36;0.39;1" calcMode="spline" keySplines="0.4 0 0.2 1;0.2 0 0.6 1;0.4 0 0.2 1;0 0 1 1" dur="1s" repeatCount="indefinite" /></tspan>
+    <tspan>Ⓢ<animateTransform attributeName="transform" type="translate" values="0 0;0 -12;0 2;0 0;0 0" keyTimes="0;0.03;0.06;0.09;1" calcMode="spline" keySplines="0.4 0 0.2 1;0.2 0 0.6 1;0.4 0 0.2 1;0 0 1 1" dur="1s" repeatCount="indefinite" /></tspan>
+    <tspan>ⓞ<animateTransform attributeName="transform" type="translate" values="0 0;0 -12;0 2;0 0;0 0" keyTimes="0;0.105;0.135;0.165;1" calcMode="spline" keySplines="0.4 0 0.2 1;0.2 0 0.6 1;0.4 0 0.2 1;0 0 1 1" dur="1s" repeatCount="indefinite" /></tspan>
+    <tspan>ⓑ<animateTransform attributeName="transform" type="translate" values="0 0;0 -12;0 2;0 0;0 0" keyTimes="0;0.18;0.21;0.24;1" calcMode="spline" keySplines="0.4 0 0.2 1;0.2 0 0.6 1;0.4 0 0.2 1;0 0 1 1" dur="1s" repeatCount="indefinite" /></tspan>
+    <tspan>ⓡ<animateTransform attributeName="transform" type="translate" values="0 0;0 -12;0 2;0 0;0 0" keyTimes="0;0.255;0.285;0.315;1" calcMode="spline" keySplines="0.4 0 0.2 1;0.2 0 0.6 1;0.4 0 0.2 1;0 0 1 1" dur="1s" repeatCount="indefinite" /></tspan>
+    <tspan>ⓔ<animateTransform attributeName="transform" type="translate" values="0 0;0 -12;0 2;0 0;0 0" keyTimes="0;0.33;0.36;0.39;1" calcMode="spline" keySplines="0.4 0 0.2 1;0.2 0 0.6 1;0.4 0 0.2 1;0 0 1 1" dur="1s" repeatCount="indefinite" /></tspan>
     <tspan> </tspan>
-    <tspan>Ⓜ<animate attributeName="dy" values="0;-12;2;0;0" keyTimes="0;0.405;0.435;0.465;1" calcMode="spline" keySplines="0.4 0 0.2 1;0.2 0 0.6 1;0.4 0 0.2 1;0 0 1 1" dur="1s" repeatCount="indefinite" /></tspan>
-    <tspan>ⓘ<animate attributeName="dy" values="0;-12;2;0;0" keyTimes="0;0.48;0.51;0.54;1" calcMode="spline" keySplines="0.4 0 0.2 1;0.2 0 0.6 1;0.4 0 0.2 1;0 0 1 1" dur="1s" repeatCount="indefinite" /></tspan>
-    <tspan>ⓜ<animate attributeName="dy" values="0;-12;2;0;0" keyTimes="0;0.555;0.585;0.615;1" calcMode="spline" keySplines="0.4 0 0.2 1;0.2 0 0.6 1;0.4 0 0.2 1;0 0 1 1" dur="1s" repeatCount="indefinite" /></tspan>
+    <tspan>Ⓜ<animateTransform attributeName="transform" type="translate" values="0 0;0 -12;0 2;0 0;0 0" keyTimes="0;0.405;0.435;0.465;1" calcMode="spline" keySplines="0.4 0 0.2 1;0.2 0 0.6 1;0.4 0 0.2 1;0 0 1 1" dur="1s" repeatCount="indefinite" /></tspan>
+    <tspan>ⓘ<animateTransform attributeName="transform" type="translate" values="0 0;0 -12;0 2;0 0;0 0" keyTimes="0;0.48;0.51;0.54;1" calcMode="spline" keySplines="0.4 0 0.2 1;0.2 0 0.6 1;0.4 0 0.2 1;0 0 1 1" dur="1s" repeatCount="indefinite" /></tspan>
+    <tspan>ⓜ<animateTransform attributeName="transform" type="translate" values="0 0;0 -12;0 2;0 0;0 0" keyTimes="0;0.555;0.585;0.615;1" calcMode="spline" keySplines="0.4 0 0.2 1;0.2 0 0.6 1;0.4 0 0.2 1;0 0 1 1" dur="1s" repeatCount="indefinite" /></tspan>
     <tspan> :</tspan>
   </text>
 </svg>
