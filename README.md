@@ -13,7 +13,7 @@
 </p>
 
 
-<p align="center">
+<p align="left">
 	<img src="assends/about-me-letters.gif" alt="Sobre Mim">
 </p>
 
