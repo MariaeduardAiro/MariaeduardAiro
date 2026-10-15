@@ -12,14 +12,15 @@
 	<img src="assends/design-slide.svg" alt="Design ☽ Front ☾ Arte">
 </p>
  
+ <p align= "center">
+<img src="assends/teste.png" width="300"
+alt="decorativo">
+</p>
 
 <p align="left">
 	<img src="assends/about-me-letters.gif" alt="Sobre Mim">
 </p>
-<p align= "center">
-<img src="assends/teste.png"
-alt="decorativo">
-</p>
+
 <h3>
 
 Meu nome é Maria Eduarda, tenho 16 anos e atualmente estudo Desenvolvimento de Sistemas.
