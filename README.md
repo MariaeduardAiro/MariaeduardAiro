@@ -13,7 +13,7 @@
 </p>
  
  <p align= "center">
-<img src="assends/teste.png" width="300"
+<img src="assends/teste.png" width="200"
 alt="decorativo">
 </p>
 
