@@ -12,12 +12,11 @@
 	<img src="assends/design-slide.svg" alt="Design ☽ Front ☾ Arte">
 </p>
  
-<table>
-	<tr>
-		<td><img src="assends/about-me-letters.gif" width="480" alt="Sobre Mim"></td>
-		<td><img src="assends/teste.png" width="180" alt="decorativo"></td>
-	</tr>
-</table>
+<p align="center">
+	<img src="assends/about-me-letters.gif" width="480" alt="Sobre Mim">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<img src="assends/teste.png" width="180" alt="decorativo">
+</p>
 
 <h3>
 
