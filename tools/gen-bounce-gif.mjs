@@ -16,12 +16,12 @@ const HEIGHT = 110;
 const FONT_SIZE = 42;
 const BASELINE = 78;
 const FRAMES = 40;
-const DELAY = 70;
+const DELAY = 80;
 const SCALE = 2;
 
-const FG = [140, 244, 252]; // #8cf4fc
-const GLITCH_PINK = [253, 60, 119];
-const GLITCH_BLUE = [56, 182, 255];
+const FG = [143, 167, 255]; // #8fa7ff
+const GLITCH_YELLOW = [243, 199, 95]; // #f3c75f
+const GLITCH_BLUE = [56, 182, 255]; // #38b6ff
 // cor reservada para o transparente (nao deve aparecer nas letras)
 const TRANSPARENT = [0, 0, 0];
 
@@ -48,14 +48,14 @@ for (let f = 0; f < FRAMES; f++) {
   const ctx = img.getContext('2d');
   const phase = f % 10;
   const glitch = phase === 2 || phase === 3 || phase === 7;
-  const shift = phase === 2 ? 8 * SCALE : phase === 3 ? -6 * SCALE : 4 * SCALE;
+  const shift = phase === 2 ? 5 * SCALE : phase === 3 ? -4 * SCALE : 3 * SCALE;
 
   // fundo transparente: nao pinta nada
   ctx.clearRect(0, 0, W, H);
   ctx.font = font;
 
   if (glitch) {
-    ctx.fillStyle = `rgb(${GLITCH_PINK[0]},${GLITCH_PINK[1]},${GLITCH_PINK[2]})`;
+    ctx.fillStyle = `rgb(${GLITCH_YELLOW[0]},${GLITCH_YELLOW[1]},${GLITCH_YELLOW[2]})`;
     ctx.fillText(TEXT, startX + shift, BASELINE * SCALE);
     ctx.fillStyle = `rgb(${GLITCH_BLUE[0]},${GLITCH_BLUE[1]},${GLITCH_BLUE[2]})`;
     ctx.fillText(TEXT, startX - shift, BASELINE * SCALE);
@@ -66,8 +66,26 @@ for (let f = 0; f < FRAMES; f++) {
 
   if (glitch) {
     const bandY = (BASELINE - FONT_SIZE + (phase * 7) % FONT_SIZE) * SCALE;
-    ctx.fillStyle = `rgb(${phase === 3 ? GLITCH_PINK : GLITCH_BLUE})`;
-    ctx.fillRect(startX + shift, bandY, textWidth * 0.42, 2 * SCALE);
+    ctx.fillStyle = `rgb(${phase === 3 ? GLITCH_YELLOW : GLITCH_BLUE})`;
+    ctx.fillRect(startX + shift, bandY, textWidth * 0.18, 2 * SCALE);
+
+    const blocks = [
+      [0.04, 0.12, 6], [0.16, 0.72, 8], [0.29, 0.28, 5], [0.43, 0.82, 10],
+      [0.57, 0.18, 6], [0.68, 0.58, 8], [0.82, 0.12, 5], [0.93, 0.70, 7],
+    ];
+    for (let i = 0; i < blocks.length; i++) {
+      const [xRatio, yRatio, size] = blocks[i];
+      const jitterX = ((f + i * 3) % 5 - 2) * SCALE;
+      const jitterY = ((f + i) % 3 - 1) * SCALE;
+      const color = (f + i) % 2 ? GLITCH_YELLOW : GLITCH_BLUE;
+      ctx.fillStyle = `rgb(${color})`;
+      ctx.fillRect(
+        startX + textWidth * xRatio + jitterX,
+        (BASELINE - FONT_SIZE + FONT_SIZE * yRatio) * SCALE + jitterY,
+        size * SCALE,
+        size * SCALE,
+      );
+    }
   }
 
   frames.push(img);
@@ -79,7 +97,7 @@ const gif = GIFEncoder();
 const palette = [
   TRANSPARENT,
   [FG[0], FG[1], FG[2]],
-  GLITCH_PINK,
+  GLITCH_YELLOW,
   GLITCH_BLUE,
   [Math.round(FG[0] * 0.75), Math.round(FG[1] * 0.75), Math.round(FG[2] * 0.75)],
   [Math.round(FG[0] * 0.5), Math.round(FG[1] * 0.5), Math.round(FG[2] * 0.5)],
