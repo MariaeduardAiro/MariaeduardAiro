@@ -1,5 +1,4 @@
-// Gera MariaeduardAiro/assends/about-me-letters.gif
-// Texto "██▓▒░Ⓢⓞⓑⓡⓔ Ⓜⓘⓜ" com cada letra pulando uma por uma (efeito bounce).
+// Gera o GIF glitch do "Sobre Mim" usando Noto Sans Cherokee.
 // pureimage (canvas 100% JS) + gifenc para o GIF animado.
 import * as PImage from 'pureimage';
 import { GIFEncoder, applyPalette } from './lib/gifenc.mjs';
@@ -10,88 +9,65 @@ import { dirname, join } from 'node:path';
 const { make: makeImage, registerFont } = PImage;
 
 // ---- config ----
-const TEXT = '██▓▒░Ⓢⓞⓑⓡⓔ Ⓜⓘⓜ';
-const LETTERS = [...TEXT];
+const TEXT = 'ᏕᎧᏰᏒᏋ ᎷᎥᎷ';
 
-const WIDTH = 420;
-const HEIGHT = 100;
-const FONT_SIZE = 26;
-const BASELINE = 64;
-const JUMP = 32;           // altura do salto (bem visivel)
-const FRAMES = 40;         // frames por loop
-const DELAY = 45;          // ms por frame (mais rapido)
-const GAP = 2;             // espacamento entre letras
-const OVERLAP = 0.07;      // atraso de cada letra em relacao a anterior
-const JUMP_PORTION = 0.30; // fracao do ciclo em que a letra fica no ar
-const SCALE = 2;           // supersampling p/ antialias
+const WIDTH = 460;
+const HEIGHT = 110;
+const FONT_SIZE = 42;
+const BASELINE = 78;
+const FRAMES = 40;
+const DELAY = 70;
+const SCALE = 2;
 
-const BG = [17, 20, 32];
-const FG = [243, 199, 95]; // #c1b1fa
+const FG = [140, 244, 252]; // #8cf4fc
+const GLITCH_PINK = [253, 60, 119];
+const GLITCH_BLUE = [56, 182, 255];
 // cor reservada para o transparente (nao deve aparecer nas letras)
 const TRANSPARENT = [0, 0, 0];
 
-const registered = registerFont('C:/Windows/Fonts/seguisym.ttf', 'SegoeSym');
+const here = dirname(fileURLToPath(import.meta.url));
+const registered = registerFont(join(here, 'fonts', 'NotoSansCherokee.ttf'), 'NotoSansCherokee');
 registered.loadSync();
 
-const font = `${FONT_SIZE * SCALE} SegoeSym`;
+const font = `${FONT_SIZE * SCALE} NotoSansCherokee`;
 
 const W = WIDTH * SCALE;
 const H = HEIGHT * SCALE;
 
-// medir cada letra
+// medir a frase inteira para manter o centro estável durante o glitch
 const measure = makeImage(W, H);
 const mctx = measure.getContext('2d');
 mctx.font = font;
-const widths = LETTERS.map((ch) => mctx.measureText(ch).width);
-const totalW = widths.reduce((a, b) => a + b, 0) + GAP * SCALE * (LETTERS.length - 1);
-const startX = (W - totalW) / 2;
-
-const xPos = [];
-let cx = startX;
-for (let i = 0; i < LETTERS.length; i++) {
-  xPos.push(cx);
-  cx += widths[i] + GAP * SCALE;
-}
+const textWidth = mctx.measureText(TEXT).width;
+const startX = (W - textWidth) / 2;
 
 // ---- desenhar frames ----
 const frames = [];
 for (let f = 0; f < FRAMES; f++) {
   const img = makeImage(W, H);
   const ctx = img.getContext('2d');
-  const t = f / FRAMES;
+  const phase = f % 10;
+  const glitch = phase === 2 || phase === 3 || phase === 7;
+  const shift = phase === 2 ? 8 * SCALE : phase === 3 ? -6 * SCALE : 4 * SCALE;
 
   // fundo transparente: nao pinta nada
   ctx.clearRect(0, 0, W, H);
   ctx.font = font;
 
-  for (let i = 0; i < LETTERS.length; i++) {
-    let p = (t - i * OVERLAP) % 1;
-    if (p < 0) p += 1;
-    let offset = 0;
-    if (p < JUMP_PORTION) {
-      const s = p / JUMP_PORTION; // 0..1
-      // sobe devagar no inicio, cai com "quique" (ease-in)
-      offset = -Math.sin(s * Math.PI) * JUMP * SCALE;
-    }
+  if (glitch) {
+    ctx.fillStyle = `rgb(${GLITCH_PINK[0]},${GLITCH_PINK[1]},${GLITCH_PINK[2]})`;
+    ctx.fillText(TEXT, startX + shift, BASELINE * SCALE);
+    ctx.fillStyle = `rgb(${GLITCH_BLUE[0]},${GLITCH_BLUE[1]},${GLITCH_BLUE[2]})`;
+    ctx.fillText(TEXT, startX - shift, BASELINE * SCALE);
+  }
 
-    // sombra que encolhe conforme a letra sobe
-    const lift = offset === 0 ? 0 : -offset / (JUMP * SCALE); // 0 no chao, 1 no ar
-    const sx = xPos[i] + widths[i] / 2;
-    const sy = BASELINE * SCALE + 7 * SCALE;
-    const shadowScale = 1 - lift * 0.55;
-    const shadowAlpha = 0.4 - lift * 0.28;
-    ctx.save();
-    ctx.translate(sx, sy);
-    ctx.scale(widths[i] * 0.45 * shadowScale, 3.5 * SCALE * shadowScale);
-    ctx.fillStyle = `rgba(0,0,0,${shadowAlpha})`;
-    ctx.beginPath();
-    ctx.arc(0, 0, 1, 0, Math.PI * 2, false);
-    ctx.fill();
-    ctx.restore();
+  ctx.fillStyle = `rgb(${FG[0]},${FG[1]},${FG[2]})`;
+  ctx.fillText(TEXT, startX + (glitch ? (phase % 2 ? -2 : 2) * SCALE : 0), BASELINE * SCALE);
 
-    // letra
-    ctx.fillStyle = `rgb(${FG[0]},${FG[1]},${FG[2]})`;
-    ctx.fillText(LETTERS[i], xPos[i], BASELINE * SCALE + offset);
+  if (glitch) {
+    const bandY = (BASELINE - FONT_SIZE + (phase * 7) % FONT_SIZE) * SCALE;
+    ctx.fillStyle = `rgb(${phase === 3 ? GLITCH_PINK : GLITCH_BLUE})`;
+    ctx.fillRect(startX + shift, bandY, textWidth * 0.42, 2 * SCALE);
   }
 
   frames.push(img);
@@ -103,6 +79,8 @@ const gif = GIFEncoder();
 const palette = [
   TRANSPARENT,
   [FG[0], FG[1], FG[2]],
+  GLITCH_PINK,
+  GLITCH_BLUE,
   [Math.round(FG[0] * 0.75), Math.round(FG[1] * 0.75), Math.round(FG[2] * 0.75)],
   [Math.round(FG[0] * 0.5), Math.round(FG[1] * 0.5), Math.round(FG[2] * 0.5)],
   [Math.round(FG[0] * 0.25), Math.round(FG[1] * 0.25), Math.round(FG[2] * 0.25)],
@@ -144,7 +122,6 @@ for (const img of frames) {
 gif.finish();
 const bytes = gif.bytes();
 
-const here = dirname(fileURLToPath(import.meta.url));
-const out = join(here, '..', 'assends', 'about-me-letters.gif');
+const out = join(here, '..', 'assends', 'about-me-glitch-ciano.gif');
 writeFileSync(out, bytes);
 console.log('GIF gerado:', out, bytes.length, 'bytes');
