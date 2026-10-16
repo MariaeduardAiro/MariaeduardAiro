@@ -8,9 +8,9 @@
 	<img src="assends/sour apple.gif" alt="Lain">
 </p>
 
-<p align="center">
-	<h2>Design ☽ Front ☾ Arte</h2>
-</p>
+
+<h2 align="center">Design ☽ Front ☾ Arte</h2>
+
  
 <p align="left">
 	<img src="assends/about-me-glitch-ciano.gif" width="310" alt="Sobre Mim">
