@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-	<h3>Design ☽ Front ☾ Arte"</h3>
+	<h2>Design ☽ Front ☾ Arte</h2>
 </p>
  
 <p align="left">
