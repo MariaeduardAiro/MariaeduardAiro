@@ -14,8 +14,7 @@
  
 <p align="center">
 	<img src="assends/about-me-letters.gif" width="480" alt="Sobre Mim">
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	<img src="assends/gif_simples_lento.gif" width="180" alt="decorativo">
+	
 </p>
 
 <p><h3>
@@ -26,4 +25,5 @@ Meu foco está especialmente nas áreas de UI e UX Design, buscando aprimorar me
 
 Além da tecnologia, também gosto de desenho e música, atividades que contribuem para o desenvolvimento da minha criatividade e ampliam minha maneira de enxergar diferentes possibilidades. Acredito que essas experiências me permitem explorar novas ideias, experimentar abordagens diferentes e criar projetos que fujam do convencional. </h3>
 
+<img src="assends/gif_simples_lento.gif" width="200" alt="decorativo">
 </p>
