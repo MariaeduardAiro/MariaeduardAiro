@@ -12,7 +12,7 @@
 	<img src="assends/design-slide.svg" alt="Design ☽ Front ☾ Arte">
 </p>
  
-<p align="center">
+<p align="left">
 	<img src="assends/about-me-letters.gif" width="480" alt="Sobre Mim">
 </p>
 
