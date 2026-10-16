@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-	<img src="assends/design-slide.svg" alt="Design ☽ Front ☾ Arte">
+	<h3>Design ☽ Front ☾ Arte"</h3>
 </p>
  
 <p align="left">
